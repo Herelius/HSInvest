@@ -1,78 +1,78 @@
-import { Schema, model } from "mongoose";
+import mongoose, { Schema, model } from "mongoose";
 import { IInvestment } from "./interface/Investment";
 
 const InvestmentSchema = new Schema<IInvestment>({
   titreoperation: {
     type: String,
-    required: true,
+    required: false,
   },
   entreprise: {
     type: String,
-    required: true,
+    required: false,
   },
   annee_de_livraison: {
     type: Date,
-    required: true,
+    required: false,
   },
   ville: {
     type: String,
-    required: true,
+    required: false,
   },
   mandataire: {
     type: String,
-    required: true,
+    required: false,
   },
   ppi: {
     type: String,
-    required: true,
+    required: false,
   },
   lycee: {
     type: String,
-    required: true,
+    required: false,
   },
   notification_du_marche: {
     type: Date,
-    required: true,
+    required: false,
   },
   codeuai: {
     type: String,
-    required: true,
+    required: false,
   },
   longitude: {
     type: Number,
-    required: true,
+    required: false,
   },
   etat_d_avancement: {
     type: String,
-    required: true,
+    required: false,
   },
   montant_des_ap_votes_en_meu: {
     type: Number,
-    required: true,
+    required: false,
   },
   cao_attribution: {
     type: Date,
-    required: true,
+    required: false,
   },
   latitude: {
     type: Number,
-    required: true,
+    required: false,
   },
   maitrise_d_oeuvre: {
     type: String,
-    required: true,
+    required: false,
   },
   mode_de_devolution: {
     type: String,
-    required: true,
+    required: false,
   },
   annee_d_individualisation: {
     type: Date,
-    required: true,
+    required: false,
   },
   enveloppe_prev_en_meu: {
     type: Number,
-    required: true,
+    required: false,
   },
 });
 
