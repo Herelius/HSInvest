@@ -10,7 +10,7 @@ export const getAllInvestments = async (
     const investments: IInvestment[] = await Investment.find().exec();
     res.status(200).send(investments);
   } catch (error) {
-    res.send({ error: error });
+    res.status(404).send({ error: error });
   }
 };
 
@@ -35,7 +35,7 @@ export const getInvestmentByCityAndOrByProgressStatus = async (
     ).exec();
     res.status(200).send(filtredInvestments);
   } catch (error) {
-    res.send({ error: error });
+    res.status(404).send({ error: error });
   }
 };
 
@@ -48,6 +48,6 @@ export const getInvestmentById = async (
     const investment: IInvestment | null = await Investment.findById(id).exec();
     res.status(200).send(investment);
   } catch (error) {
-    res.send({ error: error });
+    res.status(404).send({ error: error });
   }
 };
