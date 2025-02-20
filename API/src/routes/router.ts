@@ -8,5 +8,5 @@ import {
 export const router: Router = Router();
 
 router.get("/investments", getAllInvestments);
-router.get("/investments/id/:id", getInvestmentById);
+router.get("/investments/:id", getInvestmentById);
 router.get("/investments/filter", getInvestmentByCityAndOrByProgressStatus);
