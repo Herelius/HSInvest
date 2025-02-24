@@ -89,3 +89,18 @@ export const createInvestment = async (req: Request, res: Response) => {
     res.status(400).send({ error: err });
   }
 };
+
+export const deleteInvestment = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+
+    const investment: IInvestment | null = await Investment.findById(id).exec();
+
+    if (!investment) throw new Error("Investment not found");
+
+    await Investment.deleteOne({ _id: id });
+    res.status(200).send({ message: "Investment deleted" });
+  } catch (error) {
+    res.status(404).send({ error: error });
+  }
+};

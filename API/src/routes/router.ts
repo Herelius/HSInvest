@@ -5,6 +5,7 @@ import {
   getInvestmentById,
   updateInvestment,
   createInvestment,
+  deleteInvestment,
 } from "./investment";
 
 import { loginRoute, createUser } from "./auth";
@@ -22,6 +23,7 @@ router.get("/investments", cookieJwtAuth, getAllInvestments);
 router.get("/investments/:id", cookieJwtAuth, getInvestmentById);
 router.patch("/investments/:id/edit", cookieJwtAuth, updateInvestment);
 router.post("/investments/new", cookieJwtAuth, createInvestment);
+router.delete("/investments/:id", cookieJwtAuth, deleteInvestment);
 
 router.get(
   "/investments/filter",

@@ -65,7 +65,7 @@ export const loginRoute = async (req: Request, res: Response) => {
       });
       res.status(200).send({ message: "Authentification success.", token });
     } else {
-      res.status(401).send("Invalid credentials");
+      res.status(401).send({ message: "Invalid credentials" });
     }
   });
 };
