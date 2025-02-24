@@ -6,6 +6,7 @@ import {
   useTable,
   ShowButton,
   EditButton,
+  DeleteButton,
 } from "@refinedev/antd";
 import { Table, Space } from "antd";
 
@@ -68,6 +69,7 @@ export const ListInvestments = (): JSX.Element => {
             <Space>
               <ShowButton hideText size="small" recordItemId={record._id} />
               <EditButton hideText size="small" recordItemId={record._id} />
+              <DeleteButton hideText size="small" recordItemId={record._id} />
             </Space>
           )}
         />

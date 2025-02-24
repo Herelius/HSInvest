@@ -77,8 +77,16 @@ export const dataProvider: DataProvider = {
       data,
     };
   },
-  deleteOne: () => {
-    throw new Error("Not implemented");
+  deleteOne: async ({ resource, id, variables, meta }) => {
+    const response: Response = await fetcher(`${API_URL}/${resource}/${id}`, {
+      method: "DELETE",
+    });
+
+    if (response.status < 200 || response.status > 299) throw response;
+
+    const data = await response.json();
+
+    return { data };
   },
   getApiUrl: () => API_URL,
   // Optional methods:
