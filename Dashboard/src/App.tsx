@@ -5,12 +5,10 @@ import routerProvider, { NavigateToResource } from "@refinedev/react-router";
 import { BrowserRouter, Outlet, Route, Routes } from "react-router";
 
 import {
-  ErrorComponent,
   RefineThemes,
   ThemedLayoutV2,
   ThemedTitleV2,
   useNotificationProvider,
-  // AuthPage,
 } from "@refinedev/antd";
 import { AuthPage } from "./components/pages/auth";
 import { App as AntdApp, ConfigProvider } from "antd";
@@ -21,6 +19,7 @@ import { authProvider } from "./providers/auth-provider";
 import { ListInvestments } from "./pages/investments/list";
 import { ShowInvestment } from "./pages/investments/show";
 import { EditInvestment } from "./pages/investments/edit";
+import { CreateInvestment } from "./pages/investments/create";
 
 import { Login } from "./pages/login";
 
@@ -35,13 +34,14 @@ const App = (): JSX.Element => {
             dataProvider={dataProvider}
             routerProvider={routerProvider}
             authProvider={authProvider}
+            notificationProvider={useNotificationProvider}
             resources={[
               {
                 name: "investments",
                 list: "/investments",
                 show: "/investments/:id",
                 edit: "/investments/:id/edit",
-                // create: "/investments/new",
+                create: "/investments/new",
                 meta: { label: "Investissements" },
               },
             ]}
@@ -71,6 +71,7 @@ const App = (): JSX.Element => {
                   <Route index element={<ListInvestments />} />
                   <Route path=":id" element={<ShowInvestment />} />
                   <Route path=":id/edit" element={<EditInvestment />} />
+                  <Route path="new" element={<CreateInvestment />} />
                 </Route>
               </Route>
               <Route
