@@ -1,2 +1,5 @@
 PORT=3001
 DB_URI="mongodb+srv://HSInvest:<db_password>@hsinvest.nng7q.mongodb.net/?retryWrites=true&w=majority&appName=HSInvest"
+SECRET_TOKEN=mysecrettoken
+TOKEN_NAME=hsinvest_access_token
+SALT_ROUNDS=10
