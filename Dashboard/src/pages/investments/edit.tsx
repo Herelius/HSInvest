@@ -11,7 +11,7 @@ export const EditInvestment = (): JSX.Element => {
   });
 
   return (
-    <Edit saveButtonProps={saveButtonProps}>
+    <Edit saveButtonProps={saveButtonProps} canDelete={true}>
       <Form {...formProps} layout="vertical">
         <Form.Item label="Titre Operation" name="titreoperation">
           <Input />

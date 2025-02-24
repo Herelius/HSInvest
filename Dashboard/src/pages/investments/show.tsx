@@ -10,7 +10,7 @@ export const ShowInvestment = (): JSX.Element => {
   } = useShow();
 
   return (
-    <Show isLoading={isLoading}>
+    <Show isLoading={isLoading} canDelete={true}>
       <Typography.Title level={5}>ID</Typography.Title>
       <Typography.Text>{data?.data._id}</Typography.Text>
 
