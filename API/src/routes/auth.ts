@@ -51,7 +51,7 @@ export const loginRoute = async (req: Request, res: Response) => {
   if (!user) return res.status(404).send("Invalid email or password");
 
   bycript.compare(password, user.password, (err, result) => {
-    if (!err) {
+    if (result) {
       const token = jwt.sign(
         { email: user.email, username: user.username },
         process.env.SECRET_TOKEN as string,
@@ -64,6 +64,8 @@ export const loginRoute = async (req: Request, res: Response) => {
         httpOnly: true,
       });
       res.status(200).send({ message: "Authentification success.", token });
+    } else {
+      res.status(401).send("Invalid credentials");
     }
   });
 };
