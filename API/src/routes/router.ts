@@ -4,6 +4,7 @@ import {
   getInvestmentByCityAndOrByProgressStatus,
   getInvestmentById,
   updateInvestment,
+  createInvestment,
 } from "./investment";
 
 import { loginRoute, createUser } from "./auth";
@@ -20,6 +21,7 @@ router.post("/register", createUser);
 router.get("/investments", cookieJwtAuth, getAllInvestments);
 router.get("/investments/:id", cookieJwtAuth, getInvestmentById);
 router.patch("/investments/:id/edit", cookieJwtAuth, updateInvestment);
+router.post("/investments/new", cookieJwtAuth, createInvestment);
 
 router.get(
   "/investments/filter",

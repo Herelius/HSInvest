@@ -73,3 +73,19 @@ export const updateInvestment = async (req: Request, res: Response) => {
     res.status(400).send({ error: err });
   }
 };
+
+export const createInvestment = async (req: Request, res: Response) => {
+  try {
+    const validationValue = await investmentValidationSchema.validateAsync(
+      req.body
+    );
+
+    const investment = new Investment(validationValue);
+
+    await investment.save();
+
+    res.status(201).send({ message: "Investment created" });
+  } catch (err) {
+    res.status(400).send({ error: err });
+  }
+};
