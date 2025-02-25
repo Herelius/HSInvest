@@ -5,6 +5,7 @@ import routerProvider, { NavigateToResource } from "@refinedev/react-router";
 import { BrowserRouter, Outlet, Route, Routes } from "react-router";
 
 import {
+  ErrorComponent,
   RefineThemes,
   ThemedLayoutV2,
   ThemedTitleV2,
@@ -73,6 +74,7 @@ const App = (): JSX.Element => {
                   <Route path=":id/edit" element={<EditInvestment />} />
                   <Route path="new" element={<CreateInvestment />} />
                 </Route>
+                <Route path="*" element={<ErrorComponent />} />
               </Route>
               <Route
                 element={

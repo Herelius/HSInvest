@@ -42,8 +42,6 @@ export const dataProvider: DataProvider = {
     return { data };
   },
   getList: async ({ resource, pagination, sorters, filters, meta }) => {
-    const { current, pageSize } = pagination ?? {};
-
     const response: Response = await fetcher(`${API_URL}/${resource}`, {
       method: "GET",
     });
