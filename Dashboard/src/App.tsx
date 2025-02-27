@@ -1,7 +1,11 @@
 import { JSX } from "react";
 import { Authenticated, Refine } from "@refinedev/core";
 
-import routerProvider, { NavigateToResource } from "@refinedev/react-router";
+import routerProvider, {
+  NavigateToResource,
+  DocumentTitleHandler,
+  UnsavedChangesNotifier,
+} from "@refinedev/react-router";
 import { BrowserRouter, Outlet, Route, Routes } from "react-router";
 
 import {
@@ -90,6 +94,8 @@ const App = (): JSX.Element => {
                 />
               </Route>
             </Routes>
+            <DocumentTitleHandler />
+            <UnsavedChangesNotifier />
           </Refine>
         </AntdApp>
       </ConfigProvider>

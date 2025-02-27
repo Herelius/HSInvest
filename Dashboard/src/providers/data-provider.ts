@@ -42,8 +42,18 @@ export const dataProvider: DataProvider = {
     return { data };
   },
   getList: async ({ resource, pagination, sorters, filters, meta }) => {
+    const listFilters = filters?.filter(
+      (filter) => filter.field !== "category.id" && filter.field !== "_id"
+    );
     const response: Response = await fetcher(`${API_URL}/${resource}`, {
-      method: "GET",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        sorters: { field: sorters[0].field, order: sorters[0].order },
+        filters: listFilters,
+      }),
     });
 
     if (response.status < 200 || response.status > 299) throw response;

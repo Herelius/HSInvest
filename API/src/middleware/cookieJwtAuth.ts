@@ -1,8 +1,6 @@
 import jwt from "jsonwebtoken";
 import { Request, Response, NextFunction } from "express";
 
-import { IUser } from "../models/interface/User";
-
 export const cookieJwtAuth = (
   req: Request,
   res: Response,
@@ -15,6 +13,8 @@ export const cookieJwtAuth = (
     req.user = user;
     next();
   } catch (error) {
+    const headers = new Headers({ authorization: "" });
+    res.setHeaders(headers);
     res.clearCookie(process.env.TOKEN_NAME as string);
   }
 };

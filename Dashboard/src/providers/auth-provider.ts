@@ -7,14 +7,25 @@ import {
 const API_URL = import.meta.env.VITE_API_URL;
 
 export const authProvider: AuthProvider = {
-  check: async (): Promise<{
-    authenticated: boolean;
-  }> => {
+  check: async () => {
     const token = localStorage.getItem(import.meta.env.VITE_API_TOKEN_NAME);
 
-    return {
-      authenticated: Boolean(token),
-    };
+    const response = await fetch(`${API_URL}/check`, {
+      method: "GET",
+      headers: { authorization: token },
+    });
+
+    if (response.status !== 200) {
+      return {
+        authenticated: false,
+        logout: true,
+        redirectTo: "/login",
+        error: {
+          message: "Check failed",
+          name: "Unauthorized",
+        },
+      };
+    } else return { authenticated: true };
   },
   login: async ({
     email,

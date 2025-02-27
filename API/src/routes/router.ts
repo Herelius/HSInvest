@@ -8,7 +8,7 @@ import {
   deleteInvestment,
 } from "./investment";
 
-import { loginRoute, createUser } from "./auth";
+import { loginRoute, createUser, check } from "./auth";
 import { cookieJwtAuth } from "../middleware/cookieJwtAuth";
 
 export const router: Router = Router();
@@ -17,9 +17,10 @@ export const router: Router = Router();
 // @ts-ignore
 router.post("/login", loginRoute);
 router.post("/register", createUser);
+router.get("/check", check);
 
 // investment routes
-router.get("/investments", cookieJwtAuth, getAllInvestments);
+router.post("/investments", cookieJwtAuth, getAllInvestments);
 router.get("/investments/:id", cookieJwtAuth, getInvestmentById);
 router.patch("/investments/:id/edit", cookieJwtAuth, updateInvestment);
 router.post("/investments/new", cookieJwtAuth, createInvestment);

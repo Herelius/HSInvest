@@ -3,7 +3,22 @@ import bycript from "bcrypt";
 import { Request, Response } from "express";
 
 import { User } from "../models/user";
-import { IUser } from "../models/interface/User";
+
+export const check = async (req: Request, res: Response) => {
+  try {
+    const token = req.headers.authorization;
+
+    if (!token) {
+      res.status(401).send({ message: "Unauthorized" });
+      return;
+    }
+
+    const user = jwt.verify(token, process.env.SECRET_TOKEN as string);
+    res.status(200).send({ message: "Authorized", user });
+  } catch (error) {
+    res.status(401).send({ message: "Unauthorized" });
+  }
+};
 
 export const createUser = async (req: Request, res: Response) => {
   const { username, email, password } = req.body;
