@@ -26,6 +26,10 @@ const InvestmentSchema = new Schema<IInvestment>({
     type: String,
     required: false,
   },
+  nombre_de_lots: {
+    type: Number,
+    required: false,
+  },
   lycee: {
     type: String,
     required: false,

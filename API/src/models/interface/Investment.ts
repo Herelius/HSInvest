@@ -4,6 +4,7 @@ export interface IInvestment {
   annee_de_livraison: Date;
   ville: string;
   mandataire: string;
+  nombre_de_lots: Number;
   ppi: string;
   lycee: string;
   notification_du_marche: Date;
