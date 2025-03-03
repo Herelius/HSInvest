@@ -20,8 +20,8 @@ const importJsonData = async (data: IInvestment[]): Promise<void> => {
     mongoose.connect(db_uri);
     const investmentData: IInvestment[] | undefined = await Investment.find();
     if (investmentData && investmentData.length) {
-      console.log("Data already exists");
-      return;
+      console.log("Data already exists - Cleaning and repopulating ...");
+      await Investment.deleteMany();
     }
     await Investment.create(data);
     console.log("Data imported successfully");
