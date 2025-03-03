@@ -133,6 +133,12 @@ export const ListInvestments = (): JSX.Element => {
           defaultSortOrder={getDefaultSortOrder("mandataire", sorters)}
         />
         <Table.Column
+          dataIndex="nombre_de_lots"
+          title="Nombre de Lots"
+          sorter
+          defaultSortOrder={getDefaultSortOrder("nombre_de_lots", sorters)}
+        />
+        <Table.Column
           dataIndex="mode_de_devolution"
           title="Mode de devolution"
           sorter

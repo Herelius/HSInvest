@@ -39,6 +39,10 @@ export const CreateInvestment = (): JSX.Element => {
           <Input />
         </Form.Item>
 
+        <Form.Item label="Nombre de Lots" name="nombre_de_lots">
+          <InputNumber />
+        </Form.Item>
+
         <Form.Item label="PPI" name="ppi">
           <Input />
         </Form.Item>

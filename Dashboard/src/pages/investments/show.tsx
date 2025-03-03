@@ -31,6 +31,9 @@ export const ShowInvestment = (): JSX.Element => {
       <Typography.Title level={5}>Mandataire</Typography.Title>
       <Typography.Text>{data?.data.mandataire}</Typography.Text>
 
+      <Typography.Title level={5}>Nombre de Lots</Typography.Title>
+      <Typography.Text>{data?.data.nombre_de_lots}</Typography.Text>
+
       <Typography.Title level={5}>PPI</Typography.Title>
       <Typography.Text>{data?.data.ppi}</Typography.Text>
 
